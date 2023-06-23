@@ -191,9 +191,9 @@ docker run --restart=always --network=host -d --cap-add=NET_RAW --cap-add=NET_AD
 ```
 
 #### 3. Access Arp Web Server to Test Results
-Access the ARP web server by visiting `http://[pi ip address]/` or test headless with `curl http://[pi ip address]/`
+Access the ARP web server by visiting `http://[Your Raspberry Pi IP Address]/` or test headless with `curl http://[Your Raspberry Pi IP Address]/`
 
-_Remember: you can find your pi ip by using `hostname -I`_
+_Remember: you can find your [Your Raspberry Pi IP Address] by using `hostname -I`_
 
 
 
