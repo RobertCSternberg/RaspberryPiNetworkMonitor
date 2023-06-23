@@ -69,8 +69,8 @@ sudo nano /etc/ssh/sshd_config
 ```
 sudo systemctl restart ssh
 ```
- - New command to connect is ssh <username>@<ip-addr> -p <port-number>
- - Use hostname -I to get the IP address.
+ - New command to connect is ssh username@[Your Raspberry Pi IP Address] -p 2222
+ - _Remember: you can find your [Your Raspberry Pi IP Address] by using `hostname -I`_
 
 ***Optional: At this point, you will need to reconnect if you are currently connected over SSH.***
 
@@ -105,6 +105,8 @@ sudo docker ps -a
 
 Access the login page at `[Your Raspberry Pi IP Address]:3001'
 
+_Remember: you can find your [Your Raspberry Pi IP Address] by using `hostname -I`_
+
 Example: `192.168.1.2:3001' *You can type this directly into your browser*
 
 ***Remember to configure 2 Factor Authentication***
@@ -115,7 +117,6 @@ Example: `192.168.1.2:3001' *You can type this directly into your browser*
 #### 1. Make a Directory and Enter it. 
 ```
 mkdir networkscanner && cd networkscanner
-
 ```
 
 #### 2. Create and Edit Dockerfile using `nano Dockerfile`
@@ -191,6 +192,8 @@ docker run --restart=always --network=host -d --cap-add=NET_RAW --cap-add=NET_AD
 
 #### 3. Access Arp Web Server to Test Results
 Access the ARP web server by visiting `http://[pi ip address]/` or test headless with `curl http://[pi ip address]/`
+
+_Remember: you can find your pi ip by using `hostname -I`_
 
 
 
