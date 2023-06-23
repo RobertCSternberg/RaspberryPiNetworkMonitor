@@ -12,7 +12,7 @@ In this guide we recommend using the 1st letter of your first name followed by y
 
 For John Doe, your username would be jdoe. 
 
-**After setup, the screen will go black.  At this point you should restart manually.**
+_After setup, the screen will go black.  At this point you should restart manually._
 
 #### 3. Configure the Raspberry Pi Settings
 Use `sudo raspi-config`
@@ -36,10 +36,11 @@ sudo reboot
 *Special Thanks to linuxHint: https://linuxhint.com/enable-ssh-server-debian/*
 
 #### 1. Install Open SSH
+##### a. Install the Open SSH Server
 ```
 sudo apt install openssh-server
 ```
-##### a. Start the SSH Service
+##### b. Start the SSH Service
 ```
 sudo systemctl start ssh
 ```
@@ -47,11 +48,11 @@ sudo systemctl start ssh
 <br />
 <br />
  
-##### b. Enable SSH on Boot
+##### c. Enable SSH on Boot
 ```
 sudo systemctl enable ssh
 ```
-##### c. Validate Results
+##### d. Validate Results
 ```
 sudo systemctl status ssh
 ```
@@ -212,6 +213,7 @@ Access the ARP web server by visiting `http://[pi ip address]/` or test headless
 
 # Helpful Commands
 
+### Power and Configuration
 #### Enter Raspberry Pi Config
 `sudo raspi-config`
 
@@ -221,38 +223,39 @@ Access the ARP web server by visiting `http://[pi ip address]/` or test headless
 #### Reboot Raspberry Pi Safely
 `sudo Reboot`
 
-#### Check what port would be good for monitoring a device. 
-##### Install Nmap for Open Ports Monitoring
+### Check what port would be good for monitoring a device. 
+#### Install Nmap for Open Ports Monitoring
 ```
 sudo apt-get update
 sudo apt-get install nmap
 ```
-##### Use Nmap for Scanning
 
-Top 1000 ports
+#### Use Nmap for Scanning
+
+ - Top 1000 ports
 ```nmap [ip address to scan]```
 
-All ports
+ - All ports
 ```nmap -p- [ip address to scan]```
 
-Check all ports even if ping is blocked
+ - Check all ports even if ping is blocked
 ```nmap -p- -Pn [ip address to scan]```
 
-Advanced Scan of all ports (half-handshake, skip ping, all ports)
+ - Advanced Scan of all ports (half-handshake, skip ping, all ports)
 ```nmap -sS -Pn -p- [ip address to scan]```
 
-#### Port Management
+### Port Management
 
-Check which service is using port `80` using `sudo netstat -tuln | grep :80` or `sudo ss -tuln | grep :80`
+ - Check which service is using port `80` using `sudo netstat -tuln | grep :80` or `sudo ss -tuln | grep :80`
 
-If nginx service is using port '80', stop the service using `sudo systemctl stop nginx` and prevent nginx from starting up when the system reboots `sudo systemctl disable nginx`
+ - If nginx service is using port '80', stop the service using `sudo systemctl stop nginx` and prevent nginx from starting up when the system reboots `sudo systemctl disable nginx`
 
-#### Docker Container Management
+### Docker Container Management
 
-Check all docker containers using `sudo docker ps -a` or just check running docker containers using `sudo docker ps`
+ - Check all docker containers using `sudo docker ps -a` or just check running docker containers using `sudo docker ps`
 
-Remove stopped docker containers using `sudo docker container prune`
+ - Remove stopped docker containers using `sudo docker container prune`
 
-Start, Stop, or Remove a docker container using `sudo docker start [container id]`, `sudo docker stop [container id]`, and `sudo docker rm [container id]`
+ - Start, Stop, or Remove a docker container using `sudo docker start [container id]`, `sudo docker stop [container id]`, and `sudo docker rm [container id]`
 
-To enter into a running Docker container to test commands use  `docker exec -it [container id] /bin/sh `
+ - To enter into a running Docker container to test commands use  `docker exec -it [container id] /bin/sh `
