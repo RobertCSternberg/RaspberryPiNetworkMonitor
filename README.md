@@ -196,6 +196,8 @@ Access the ARP web server by visiting `http://[pi ip address]/` or test headless
 
 ## VII. Scheduling Push Notification Tasks with Cron to allow for Raspberry Pi Uptime Monitoring
 
+Use `sudo crontab -u root -e`
+
 #### 1. Cron Job to Push Notify the Monitor Every Minute
 ```
 * * * * * /usr/bin/curl "[PUSH URL]" > /dev/null 2>&1
