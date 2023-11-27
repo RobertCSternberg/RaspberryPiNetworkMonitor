@@ -112,6 +112,8 @@ Example: `192.168.1.2:3001' *You can type this directly into your browser*
 ***Remember to configure 2 Factor Authentication***
 
 ## VI. Using Arp Web Server for Uptime of Devices that Do Not Allow Ping
+***An updated version of section VI can be followed using the instructions at https://github.com/RobertCSternberg/ARPNetworkMonitor***
+
 ### Create Arp Web Server
 
 #### 1. Make a Directory and Enter it. 
